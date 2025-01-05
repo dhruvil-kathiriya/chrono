@@ -16,11 +16,12 @@ datasource db {
 
 // model ==> tabele in Supabase
 model User {
-  id            String          @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String?
-  email         String          @unique
+  email         String    @unique
   emailVerified DateTime?
   image         String?
+  userName      String?   @unique
   accounts      Account[]
   sessions      Session[]
 
@@ -66,5 +67,3 @@ model VerificationToken {
 
   @@id([identifier, token])
 }
-
-
